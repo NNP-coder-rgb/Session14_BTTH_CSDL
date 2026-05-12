@@ -221,13 +221,6 @@ BEGIN
     DECLARE v_balance_user DECIMAL(18,2);
     DECLARE v_wallet_status VARCHAR(20);
     
-    -- Biến bắt lỗi để Rollback
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
-    BEGIN
-        ROLLBACK;
-        SET message = 'Lỗi hệ thống: Giao dịch thất bại và đã được hoàn tác.';
-    END;
-
     -- B4: Lấy dữ liệu và gán vào biến
     -- Lấy thông tin sản phẩm
     SELECT stock, price INTO v_stock_product, v_product_price 
